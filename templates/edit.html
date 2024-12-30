@@ -1,0 +1,37 @@
+{% extends "base.html" %} 
+{% block title %} Create | Post {% endblock %}
+
+{% block content %}
+  <div class="container bg-white shadow mt-5 p-5 rounded-3">
+    <h2 class="mb-5">Edit Product</h2>
+    <form action="{{ url_for('edit_submit') }}" method="post" enctype="multipart/form-data">
+      <input name="id" value="{{ products[0] }}" type="hidden">
+        <div class="row mb-4">
+            <div class="col">
+                <label for="">Product name</label>
+                <input name="name" value="{{ products[1] }}" class="form-control" type="text">
+            </div>
+            <div class="col">
+              <label class="" for="thumbnail"><span>Thumbnail</span>  </label> <span class="ms-4 text-danger">Recommend size 300 x 250</span>
+              <input name="thumbnail" id="thumbnail" class="form-control" type="file">
+            </div>
+        </div>
+
+        <input name="old-thumbnail" value="{{ products[3] }}" type="text">
+        
+        <div class="col">
+          <label  for="thumbnail">Old Thumbnail </label>
+          <img class="prepare-thumbnail d-block mb-3" src="/static/uploads/{{ products[3] }}" alt="">
+        </div>
+
+        <div class="mb-4">
+            <label for=""> Desctiption</label>
+            <textarea name="description" rows="5" class="form-control" id="">
+            </textarea>
+        </div>
+        <div class="mt-5">
+            <button type="submit" class="btn btn-primary">Save Product</button>
+        </div>
+    </form>
+  </div>
+{% endblock %}

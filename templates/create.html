@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} HOME {% endblock %}
+{% block content %}
+  <div class="container bg-white shadow mt-5 p-5 rounded-3">
+    <form action="{{ url_for('create_post')}}" method="post" enctype="multipart/form-data">
+        <div class="row mb-4">
+            <div class="col">
+                <label for="">Product Name</label>
+                <input name="name" class="form-control" type="text">
+            </div>
+            <div class="col">
+                <label for="">Product Brand</label>
+                <input name="brand" class="form-control" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="">Product Price</label>
+                <input name="price" class="form-control" type="text">
+            </div>
+            <div class="col">
+                <label class="" for="thumbnail"><span>Thumbnail</span>  </label> <span class="ms-4 text-danger">Recommend size 300 x 250</span>
+                <input name="thumbnail" id="thumbnail" class="form-control" type="file">
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for=""> Desctiption</label>
+            <textarea name="description" rows="5" class="form-control" id=""></textarea>
+        </div>
+        <div class="mt-5">
+            <button class="btn btn-primary">Save Product</button>
+        </div>
+    </form>
+  </div>
+{% endblock %}

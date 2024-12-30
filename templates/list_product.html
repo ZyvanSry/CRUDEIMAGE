@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container-fluid p-4 bg-white shadow mt-5">
+        <h3>List Products</h3>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>#ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Thumbnail</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+    
+            <tbody>
+                {% for products in products %}
+                    <tr class="align-middle">
+                        <td>{{ products[0] }}</td>
+                        <td>{{ products[1] }}</td>
+                        <td> 1200$ </td>
+                        <td> <img class="thumbnail" src="http://127.0.0.1:5000/static/uploads/{{ products[3] }} " alt="thumbnail"> </td>
+                        <td> <span class="hgithlight"> 2024-12-24 </span> </td>
+                        <td>
+                            <a href="/edit/{{ products[0] }}" class="btn btn-primary me-1 shadow"> <i class="bi bi-pencil-square"></i> </a>
+                            <button class="btn btn-danger shadow"> <i class="bi bi-x-circle"></i> </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
